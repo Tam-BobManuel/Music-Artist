@@ -4,7 +4,7 @@ import Image from "next/image";
 import Logo from "@/../public/Images/logo.svg";
 import Link from "next/link";
 import newsBtn from "@/../public/Icons/Newsletter.png";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import NewsletterModal from "../newsletter-modal";
 
@@ -19,7 +19,6 @@ const navItems = [
 ];
 
 export default function NavBar() {
-  const [isMounted, setIsMounted] = useState(false);
   const pathname = usePathname(); 
   const [showModal, setShowModal] = useState(false);
 
@@ -31,11 +30,6 @@ export default function NavBar() {
     setShowModal(false);
   };
 
-  // Handle hydration mismatch
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
   return (
     <div className="z-10 absolute top-[40px] container w-full text-white overflow-hidden">
       <nav className="relative justify-between flex mx-auto w-10/12 items-center ">
@@ -46,7 +40,7 @@ export default function NavBar() {
         <div className="lg:hidden">
           <Sheet>
             <SheetTrigger>
-              <button className="text-white text-2xl focus:outline-none">☰</button>
+              <span className="text-white text-2xl focus:outline-none">☰</span>
             </SheetTrigger>
             <SheetContent side="left" className="w-11/12 border-none text-white bg-black/20 p-8 backdrop-blur-xl">
               <SheetHeader>
@@ -66,12 +60,11 @@ export default function NavBar() {
                       </Link>
                     </li>
                   ))}
-                  <SheetClose className="mt-4 mx-auto">
+                  <SheetClose className="mt-4 mx-auto" >
                     <Image
                       src={newsBtn}
                       alt="NewsLetter"
                       className="cursor-pointer"
-                      onClick={handleOpenModal}
                       priority
                     />
                   </SheetClose>

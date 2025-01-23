@@ -1,9 +1,3 @@
-
-const APP_NAME="Artist by Tam";
-const APP_DEFAULT_TITILE = "Artist";
-const APP_TITLE_TEMPLATE = "%s - APP";
-const APP_DESCRIPTION = "A website built by Tam"
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";

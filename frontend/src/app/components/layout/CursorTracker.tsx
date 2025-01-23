@@ -9,7 +9,7 @@ const CursorTracker = () => {
   const cursorXSpring = useSpring(cursorX, springConfig)
   const cursorYSpring = useSpring(cursorY, springConfig)
   const [clicked, setClicked] = useState(false)
-  const [showCursor, setShowCursor] = useState(true)
+  const [showCursor] = useState(true)
   const [bgColor, setBgColor] = useState("rgb(255, 255, 255)")
   const ringAnimation = useAnimation()
   const cursorRef = useRef<HTMLDivElement>(null)
